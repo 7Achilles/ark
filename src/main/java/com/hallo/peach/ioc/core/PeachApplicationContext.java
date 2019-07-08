@@ -179,8 +179,6 @@ public class PeachApplicationContext{
                         //构造代理类
                         PeachMethodInterceptor proxyer = new PeachMethodInterceptor(ob);
 
-                        beans.put("peachMethodInterceptor",proxyer);
-
                         //创建被代理对象
                         String className = pPointCut.className();
 
@@ -191,13 +189,17 @@ public class PeachApplicationContext{
 
                         Object object = proxyer.createProxyObject(o);
 
-                        beans.put(beanId, object);
-
                         if (object != null && !StringUtils.isEmpty(className)) {
 
-                            beanId = toLowerCaseFirstOne(className);
+                            beanIdArr = className.split("\\.");
 
-                            beans.put(beanId, o);
+                            index = beanIdArr.length;
+
+                            beanId = beanIdArr[index - 1];
+
+                            beanId = toLowerCaseFirstOne(beanId);
+
+                            beans.put(beanId, object);
                         }
 
                     }

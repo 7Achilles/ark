@@ -16,7 +16,7 @@ public class TestApplication {
 
         PeachApplication.getInstance(TestApplication.class);
         ConcurrentHashMap<String, Object> beans = getBeans();
-        Target aopTest = (Target)beans.get("aopTest");
+        Target aopTest = (Target)beans.get("target");
         aopTest.point();
 
     }
