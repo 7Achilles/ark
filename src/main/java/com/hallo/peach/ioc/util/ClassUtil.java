@@ -15,6 +15,29 @@ import java.util.jar.JarFile;
 public class ClassUtil {
 
     /**
+     * 通过全限定类名实例化
+     *
+     * @return
+     */
+    public static Object getInstance(String className) {
+        Class clazz = null;
+        Object o = null;
+        try {
+            clazz = Class.forName(className);
+            try {
+                o = clazz.newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
+
+    /**
      * 取得某个接口下所有实现这个接口的类
      */
     public static List<Class> getAllClassByInterface(Class c) {
@@ -42,7 +65,7 @@ public class ClassUtil {
         return returnClassList;
     }
 
-    /*
+    /**
      * 取得某一类所在包的所有类名 不含迭代
      */
     public static String[] getPackageAllClassName(String classLocation, String packageName) {

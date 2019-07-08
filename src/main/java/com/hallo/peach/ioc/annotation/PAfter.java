@@ -6,12 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 对象依赖注入
  * @author lym
- */
+ * */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOD })
-public @interface PAutowired {
+@Target(value = ElementType.METHOD)
+public @interface PAfter {
 
+    String methodName();
 
 }
+

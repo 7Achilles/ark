@@ -7,6 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 组件
  * @author lym
  */
 @Target({ElementType.TYPE})
