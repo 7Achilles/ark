@@ -30,6 +30,8 @@ public class PeachApplication {
 
     }
 
+    private PeachApplication(){}
+
     public static PeachApplication getInstance(Class<?> clazz) {
 
         if (instance == null) {
